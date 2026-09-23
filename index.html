@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="kitty-journey-bundle" content="github-pages-assets-2026-09-23">
+  <title>Kitty's Journey</title>
+  <style>
+:root{--cream:#fff8eb;--paper:#fffdf7;--ink:#334d52;--muted:#6f8586;--coral:#e77e70;--blue:#76b9d9;--gold:#efbd63;--green:#a9c98e;--ease:cubic-bezier(.2,.78,.18,1)}
+*{box-sizing:border-box}
+html,body,#app{width:100%;height:100%;margin:0;overflow:hidden}
+body{font-family:Avenir,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream)}
+button{font:inherit;color:inherit}
+.scene{position:absolute;inset:0;overflow:hidden;background:var(--cream);animation:sceneIn .75s var(--ease)}
+.scene[hidden],[hidden]{display:none!important}
+@keyframes sceneIn{from{opacity:0;transform:scale(.988)}
+}
+img{max-width:100%;max-height:100%;object-fit:contain}
+.eyebrow{display:block;color:var(--coral);font-size:clamp(12px,1vw,15px);font-weight:900;letter-spacing:.15em}
+.cta{border:0;border-radius:99px;padding:14px 22px;background:var(--ink);color:white;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 10px 22px #29464f25;transition:.25s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px #29464f32}
+.cta span{margin-left:12px}
+.opening{display:grid;grid-template-columns:44% 56%;align-items:center;padding:4vh 7vw}
+.hero-art{height:92vh;display:flex;align-items:flex-end;justify-content:center}
+.hero-art img{height:92%;transform-origin:50% 100%;animation:heroHello 4.8s ease-in-out infinite}
+.opening-copy{max-width:780px}
+.opening h1{font:800 clamp(48px,5.25vw,76px)/1 Georgia,serif;letter-spacing:-.045em;margin:18px 0;white-space:nowrap}
+.opening h1 em{font-weight:500;color:var(--coral)}
+.opening h2{font:italic 600 clamp(22px,2.15vw,32px)/1.25 Georgia,serif;margin:0 0 20px;max-width:760px;text-wrap:balance}
+.opening p{font-size:clamp(18px,1.4vw,21px);line-height:1.55;color:var(--muted);margin:0 0 28px;max-width:720px;text-wrap:pretty}.opening-quote span{display:block;white-space:nowrap}.opening-quote span+span{margin-top:3px}
+.doodle{position:absolute;color:var(--gold);font-size:32px;animation:twinkle 2.8s ease-in-out infinite}
+.d1{right:7%;top:12%;transform:rotate(12deg)}
+.d2{right:10%;bottom:10%;color:var(--coral);animation-delay:-1s}.d3{left:5%;top:12%;font-size:22px;animation-delay:-1.7s}
+.opening .cta span{display:inline-block;animation:arrowNudge 1.8s ease-in-out infinite}.opening-cloud{position:absolute;width:62px;height:19px;border-radius:99px;background:#fff9;box-shadow:18px -9px 0 #fff9,-16px -5px 0 -2px #fff9;opacity:.7}.cloud-a{left:-9%;top:18%;animation:openingDrift 22s linear infinite}.cloud-b{left:-14%;top:73%;transform:scale(.65);animation:openingDrift 28s -11s linear infinite}.tiny-flight{position:absolute;right:5%;top:23%;width:190px;height:70px;opacity:.6}.tiny-flight i{position:absolute;inset:15px 0 auto;height:48px;border-top:2px dashed #76b9d988;border-radius:50%}.tiny-flight span{position:absolute;left:0;top:0;color:var(--blue);font-size:22px;animation:miniFly 5.5s var(--ease) infinite}@keyframes heroHello{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-7px) rotate(.5deg)}}@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8) rotate(-5deg)}50%{opacity:1;transform:scale(1.12) rotate(7deg)}}@keyframes arrowNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}@keyframes openingDrift{to{left:110%}}@keyframes miniFly{0%{transform:translate(0,25px) rotate(-8deg);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translate(165px,0) rotate(-8deg);opacity:0}}
+.map-scene,.flight{background:#d5edf6}
+.full-map{width:100%;height:100%;object-fit:cover}
+.scene-label{position:absolute;left:5vw;top:6vh;max-width:470px;padding:16px 20px;background:#fffdf7dc;backdrop-filter:blur(8px);border-radius:18px;box-shadow:0 10px 30px #3156651f}
+.scene-label span,.flight-caption span{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--coral)}
+.scene-label h2{font:700 clamp(32px,3.5vw,50px)/1.08 Georgia,serif;margin:8px 0;text-wrap:balance}
+.taiwan-label{left:61%;top:20%;max-width:420px}
+.wisconsin-label{top:auto;bottom:7vh;max-width:540px}
+.hotspot{position:absolute;border:0;background:none;cursor:pointer;font-size:18px;font-weight:900}
+.hotspot i{display:block;width:20px;height:20px;margin:auto;border-radius:50%;background:var(--coral);box-shadow:0 0 0 10px #fff9;animation:pulse 1.9s infinite}
+.hotspot span{display:block;margin-top:14px;padding:8px 13px;background:#fffdf2e8;border-radius:99px;box-shadow:0 5px 16px #30536125}
+.taiwan-hotspot{left:52%;top:47%;transform:translateX(-50%)}
+.madison-hotspot{left:51.5%;top:56%}
+@keyframes pulse{50%{box-shadow:0 0 0 20px #fff0}
+}
+.memory{position:absolute;inset:5vh 5vw;display:grid;grid-template-columns:42% 1fr;align-items:center;gap:5vw;padding:2vh 5vw;background:#fff9edf5;border-radius:24px;box-shadow:0 25px 80px #2a4c5a32;animation:memoryIn .7s var(--ease)}
+@keyframes memoryIn{from{opacity:0;transform:translateY(14px)}
+}
+.memory>img{height:83vh;justify-self:center}
+.memory h2,.story-copy h2,.suitcase-zone h2,.puzzle-zone h2,.future h2{font:700 clamp(36px,4vw,58px)/1.08 Georgia,serif;margin:12px 0 18px;text-wrap:balance}
+.memory p,.story-copy p{font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--muted);max-width:610px}
+.memory blockquote{margin:22px 0;font:italic 700 23px Georgia,serif;color:var(--coral)}
+.why-leave{display:grid;grid-template-columns:45% 55%;align-items:center;padding:3vh 7vw;background:radial-gradient(circle at 28% 45%,#fffdf7 0 18%,transparent 43%),linear-gradient(135deg,#fff8eb,#f4ecdf)}
+.why-art{position:relative;height:94vh;display:flex;align-items:center;justify-content:center}.why-art img{height:90%;max-width:100%;object-fit:contain;filter:drop-shadow(0 20px 28px #4d39252e)}.heart-portrait:before{content:"";position:absolute;width:78%;height:83%;border-radius:48%;background:radial-gradient(circle at 50% 38%,#724d3c30,transparent 66%);filter:blur(12px)}.heart-portrait img{z-index:1;border-radius:48% 48% 38% 38%/35% 35% 25% 25%;-webkit-mask-image:radial-gradient(ellipse 64% 55% at 50% 47%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 64% 55% at 50% 47%,#000 70%,transparent 100%)}.scene:not([hidden]) .heart-portrait img{animation:heartHeroIn .9s var(--ease) both}.scene:not([hidden]) .heart-portrait:after{content:"♡";position:absolute;z-index:3;left:50%;top:34%;font:700 32px Georgia,serif;color:#ef8275;animation:heartEcho 2.2s 1s ease-in-out infinite}.why-copy{max-width:720px}.why-copy h2{font:700 clamp(38px,4vw,58px)/1.08 Georgia,serif;margin:12px 0 18px;text-wrap:balance}.why-copy p{font-size:clamp(19px,1.55vw,23px);line-height:1.55;color:var(--muted);max-width:700px}.why-copy blockquote{margin:24px 0;font:italic 700 clamp(20px,1.8vw,27px)/1.35 Georgia,serif;color:var(--coral)}.orbit{position:absolute;z-index:3;color:var(--gold);font-size:30px;animation:gentleOrbit 3.5s ease-in-out infinite}.o1{right:13%;top:24%}.o2{left:9%;top:42%;color:var(--coral);animation-delay:-1.3s}.o3{right:5%;top:50%;animation-delay:-2.1s}@keyframes gentleOrbit{50%{transform:translateY(-8px) rotate(5deg)}}@keyframes heartHeroIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes heartEcho{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(.6)}35%{opacity:.75}70%{opacity:0;transform:translate(-50%,-50%) scale(1.55)}}
+.memory>img,.heart-portrait img{height:80vh}.memory h2{font-size:clamp(34px,3.2vw,49px);white-space:nowrap;text-wrap:nowrap}.memory p{max-width:none;font-size:clamp(17px,1.32vw,20px);white-space:nowrap}
+.goodbye{display:grid;grid-template-columns:56% 44%;align-items:center;padding:4vh 7vw}
+.goodbye-art{height:92vh;display:flex;justify-content:flex-end;align-items:flex-end}
+.goodbye-art img{height:92%}
+.story-copy{max-width:560px}
+.hold{display:flex;align-items:center;gap:14px;border:0;background:none;margin-top:24px;padding:0;cursor:pointer;text-align:left;font-size:18px}
+.hold svg{width:58px;height:58px;transform:rotate(-90deg)}
+.hold circle{fill:none;stroke:#ded7ca;stroke-width:4}
+.hold circle+circle{stroke:var(--coral);stroke-dasharray:132;stroke-dashoffset:132}
+.hold b{font-size:20px}
+.plane-interior{background:linear-gradient(130deg,#eaf3f4,#d9e8ec 58%,#cbdde2);display:grid;grid-template-columns:minmax(360px,36%) 1fr;align-items:center;padding:3vh 6vw;gap:3vw}
+.plane-portrait{position:relative;height:94vh;width:min(70.5vh,54vw);align-self:end;justify-self:center}
+.seat-kitty{position:absolute;inset:0;width:100%;height:100%;object-position:center bottom}
+.cabin-copy{align-self:center;max-width:420px;z-index:4}
+.cabin-copy p{font:700 clamp(27px,3vw,43px)/1.18 Georgia,serif;margin:20px 0;text-wrap:nowrap}
+.cabin-copy small{display:block;font-size:16px;line-height:1.5;color:var(--muted);white-space:nowrap}
+.window-hotspot{position:absolute;right:1%;top:7%;z-index:3;width:31%;height:39%;border:2px solid transparent;border-radius:42%;padding:0;background:transparent;cursor:pointer;transition:.35s var(--ease)}
+.window-hotspot:hover,.window-hotspot:focus-visible{border-color:#fff9;box-shadow:0 0 0 7px #8dd4f126,0 0 30px #75badd99;outline:0}
+.window-hotspot span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.window-hotspot.zoom{animation:windowZoom .8s var(--ease) forwards}
+@keyframes windowZoom{to{transform:scale(8);opacity:0}
+}
+.cloud{position:absolute;width:70px;height:24px;background:#fffdf5e8;border-radius:99px;box-shadow:21px -12px 0 2px #fffdf5e8,-19px -6px 0 -1px #fffdf5e8,0 7px 12px #6a9eb52b}
+.sky .c1{top:27%;left:-35%;animation:drift 18s linear infinite}
+.sky .c2{top:55%;left:-45%;transform:scale(.7);animation:drift 24s linear -9s infinite}
+.sky .c3{top:77%;left:-50%;transform:scale(.48);animation:drift 30s linear -3s infinite}
+@keyframes drift{to{left:125%}
+}
+.flight svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.flight path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:1 15;opacity:.95}
+.flight path.draw{animation:routeDraw 4s linear forwards}
+@keyframes routeDraw{from{stroke-dashoffset:700}
+to{stroke-dashoffset:0}
+}
+.moving-plane{position:absolute;width:clamp(58px,6vw,92px);height:auto;filter:drop-shadow(0 8px 8px #31596c55);z-index:4}
+.moving-plane.small{width:clamp(48px,4.5vw,72px)}
+.flight-caption{position:absolute;left:5vw;top:6vh;padding:14px 18px;background:#fffdf2dc;border-radius:16px;backdrop-filter:blur(7px);box-shadow:0 10px 28px #31566520;z-index:3}
+.flight-caption b{display:block;font:700 clamp(20px,2vw,30px)/1.25 Georgia,serif;margin-top:7px}
+.clouds .cloud{z-index:2;opacity:.82}
+.clouds .c1{top:20%;left:-10%;animation:mapDrift 24s linear infinite}
+.clouds .c2{top:72%;left:-15%;transform:scale(.7);animation:mapDrift 32s linear -12s infinite}
+.clouds .c3{top:42%;left:-20%;transform:scale(.5);animation:mapDrift 36s linear -22s infinite}
+.clouds .c4{top:10%;left:-25%;transform:scale(.6);animation:mapDrift 29s linear -6s infinite}
+@keyframes mapDrift{to{left:108%}
+}
+.grad-memory{position:absolute;right:2vw;bottom:-4vh;height:43vh;filter:drop-shadow(0 10px 15px #33535f38)}
+.graduate-story{display:grid;grid-template-columns:45% 55%;align-items:center;padding:3vh 7vw;background:linear-gradient(135deg,#fff8eb,#f8efe1)}
+.graduate-art{height:94vh;display:flex;align-items:flex-end;justify-content:center}.graduate-art img{height:89%;filter:drop-shadow(0 16px 22px #5a3b2c22)}
+.graduate-copy{max-width:720px;padding:clamp(22px,2.4vw,38px);border:1px solid #fff8;border-radius:28px;background:#fffaf2b8;box-shadow:0 22px 65px #765c3820;backdrop-filter:blur(8px)}.graduate-copy h2{font:700 clamp(30px,3vw,44px)/1.06 Georgia,serif;margin:12px 0 20px}.two-line-title span,.two-line-title strong{display:block;white-space:nowrap}.two-line-title strong{position:relative;width:max-content;max-width:100%;color:var(--coral);font-weight:700;margin-top:7px}.two-line-title strong:after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:5px;border-radius:99px;background:linear-gradient(90deg,var(--gold),#ef8275);transform-origin:left}.sentence-stack{display:grid;gap:8px}.graduate-copy p{font-size:clamp(17px,1.3vw,20px);line-height:1.5;color:var(--muted);max-width:670px;margin:0}.graduate-copy blockquote{display:grid;gap:4px;margin:18px 0;font:italic 700 clamp(19px,1.6vw,24px)/1.3 Georgia,serif;color:var(--coral)}.graduate-copy blockquote span{display:block}
+.question-button{display:flex;align-items:center;gap:15px;border:0;background:none;padding:4px 0;cursor:pointer;font:700 21px Georgia,serif}.question-button i{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;font-style:normal;transition:.25s}.question-button:hover i{transform:translateX(4px)}
+.carry-line{padding-left:18px;border-left:3px solid var(--gold);font-weight:700;color:var(--ink)!important}
+
+.suitcase-scene{display:grid;grid-template-columns:38% 62%;padding:3vh 5vw;gap:3vw}
+.explore-kitty{height:94vh;display:flex;align-items:flex-end;justify-content:center}
+.explore-kitty img{height:87%}
+.suitcase-zone{position:relative;height:94vh;padding-top:2vh;display:grid;grid-template-rows:auto auto minmax(300px,42vh) 44px minmax(62px,auto) 78px;align-content:center}
+.suitcase-zone h2{font-size:clamp(32px,3.2vw,47px);margin:9px 0 5px;max-width:720px}
+.suitcase-stage{position:relative;min-height:0;width:100%}
+.suitcase{position:absolute;inset:0;display:block;width:min(44vw,590px);height:100%;margin:0 auto;border:0;background:none;cursor:pointer;transition:.3s}
+.suitcase:hover{transform:translateY(-3px)}
+.suitcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:.55s var(--ease)}
+.case-open{opacity:0;transform:scale(.95)}
+.suitcase.open .case-closed{opacity:0;transform:scale(.95)}
+.suitcase.open .case-open{opacity:1;transform:scale(1)}
+.suitcase span{position:absolute;left:50%;bottom:1%;transform:translateX(-50%);padding:7px 12px;border-radius:99px;background:#fffdf2e8;font-size:17px;font-weight:900;white-space:nowrap}
+.suitcase.open span{display:none}
+.case-items{position:absolute;left:20%;right:20%;top:52%;height:25%;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;gap:7%;z-index:5}
+.case-items button{position:relative;height:100%;padding:0;border:0;background:transparent;cursor:pointer;transition:.35s var(--ease)}
+.case-items button:hover{transform:translateY(-8px) scale(1.05);filter:drop-shadow(0 8px 8px #4d392535)}
+.object-wrap{display:block;width:100%;height:100%}.case-items img{width:clamp(64px,5.5vw,86px);height:100%;display:block;margin:auto;object-fit:contain;filter:drop-shadow(0 5px 5px #5b473a42)}
+.case-items button.done{opacity:0;transform:translateY(-18px) scale(.55);pointer-events:none}
+.item-labels{display:grid;grid-template-columns:repeat(3,1fr);align-items:start;width:min(42vw,560px);margin:0 auto;text-align:center;gap:18px}.item-labels span{position:relative}.item-labels b{display:block;font-size:16px;white-space:nowrap}.item-labels i{display:block;margin-top:3px;font-size:12px;font-style:normal;color:var(--coral)}.item-labels span.done{color:#6c8874}.item-labels span.done i{font-size:0}.item-labels span.done i:after{content:'✓ Collected';font-size:12px}
+.story-line{min-height:54px;margin:12px auto 0;max-width:680px;text-align:center;font:700 clamp(18px,1.5vw,21px)/1.45 Georgia,serif;align-self:center}
+.stickers{position:absolute;left:22%;top:55%;width:56%;height:27%;z-index:6;pointer-events:none;display:grid;grid-template-columns:repeat(3,1fr);align-items:center}
+.stickers img{position:relative!important;left:auto!important;top:auto!important;width:clamp(62px,5vw,80px);height:clamp(62px,5vw,80px);justify-self:center;object-fit:contain;filter:drop-shadow(0 4px 4px #4d39252c);animation:stickerPop .5s var(--ease)}
+.stickers .sticker-game{grid-column:1;transform:rotate(-7deg)}
+.stickers .sticker-tech{grid-column:2;transform:rotate(5deg)}
+.stickers .sticker-creative{grid-column:3;transform:rotate(-3deg)}
+@keyframes stickerPop{from{opacity:0;transform:scale(.2) rotate(-20deg)}
+}
+.plane-unlock{border:0;background:#fffaf0;display:flex;align-items:center;gap:12px;margin:10px auto 0;padding:7px 18px;border-radius:99px;cursor:pointer;font-size:17px;font-weight:900;color:var(--coral);box-shadow:0 8px 20px #4d39251a;align-self:start}
+.plane-unlock img{width:72px;height:54px}.plane-unlock span{display:grid;text-align:left;line-height:1.15}.plane-unlock small{font-size:13px;color:var(--muted);margin-top:4px}.suitcase-stage.complete{filter:drop-shadow(0 10px 18px #efbd6340)}
+.milestone-unlock .cap-mark{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#fff5dc;font-size:30px;box-shadow:0 7px 18px #71562c20}
+.map-dot{position:absolute;width:17px;height:17px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 8px #fff9;z-index:3}
+.map-dot.wi{left:61%;top:33%}
+.map-dot.ms{left:61%;top:73%;opacity:.35}
+.map-name{position:absolute;z-index:3;padding:5px 9px;border-radius:99px;background:#fffdf2dc;font-size:16px;font-weight:900}
+.wi-name{left:62%;top:28%}
+.ms-name{left:62%;top:76%}
+.mississippi{display:grid;grid-template-columns:48% 52%;padding:3vh 4vw;gap:3vw}
+.ms-visual{position:relative;height:94vh}
+.ms-visual>img:first-child{width:100%;height:100%;object-fit:contain}
+.presenter{position:absolute;right:-2%;bottom:0;height:52%;max-width:43%;filter:drop-shadow(0 8px 12px #33535f30)}
+.puzzle-zone{align-self:center;padding-right:4vw}
+.puzzle-zone h2{font-size:clamp(34px,3.5vw,52px);margin:8px 0}
+.puzzle{position:relative;width:min(40vw,520px);height:270px;margin:4px auto}
+.puzzle button{position:absolute;width:160px;height:120px;border:0;background:none;padding:0;cursor:pointer;transition:.65s var(--ease)}
+.puzzle svg{width:100%;height:100%;filter:drop-shadow(0 6px 5px #4a64702f)}
+.puzzle path{stroke:#fff9;stroke-width:4}
+.puzzle button span{position:absolute;inset:0;display:grid;place-items:center;font-size:17px;font-weight:900}
+.p.stem{left:0;top:0}
+.p.games{right:0;top:0}
+.p.curriculum{left:0;bottom:0}
+.p.creative{right:0;bottom:0}
+.stem path{fill:#efbd63}
+.games path{fill:#82bdd9}
+.curriculum path{fill:#a9c98e}
+.creative path{fill:#e78b7d}
+.puzzle button:hover{transform:translateY(-6px)}
+.puzzle button.connected.stem{left:calc(50% - 160px);top:15px}
+.puzzle button.connected.games{right:calc(50% - 160px);top:15px}
+.puzzle button.connected.curriculum{left:calc(50% - 160px);bottom:15px}
+.puzzle button.connected.creative{right:calc(50% - 160px);bottom:15px}
+.reflection{text-align:center;font:600 17px/1.4 Georgia,serif}
+.reflection p{margin:3px}
+.future{display:grid;grid-template-columns:37% 63%;align-items:center;padding:3vh 6vw}
+.future-kitty{height:92vh;align-self:end;justify-self:center}
+.future-copy{max-width:850px}
+.future h2{font-size:clamp(38px,4.3vw,64px)}
+.future-copy>p,.future-sentences p{font-size:clamp(18px,1.45vw,22px);line-height:1.5;color:var(--muted);max-width:900px;margin:0;text-wrap:pretty}.future-sentences{display:grid;gap:7px;margin:14px 0 20px;padding-left:18px;border-left:3px solid var(--gold)}
+.scene:not([hidden]) .graduate-art img{animation:characterArrive .9s var(--ease) both}.scene:not([hidden]) .graduate-copy{animation:panelArrive .7s .08s var(--ease) both}.scene:not([hidden]) .graduate-copy>*{animation:sentenceRise .55s var(--ease) both}.scene:not([hidden]) .graduate-copy>*:nth-child(2){animation-delay:.14s}.scene:not([hidden]) .graduate-copy>*:nth-child(3){animation-delay:.25s}.scene:not([hidden]) .graduate-copy>*:nth-child(4){animation-delay:.36s}.scene:not([hidden]) .graduate-copy>*:nth-child(5){animation-delay:.47s}.scene:not([hidden]) .graduate-copy>*:nth-child(6){animation-delay:.58s}.scene:not([hidden]) .two-line-title strong:after{animation:underlineGrow .75s .65s var(--ease) both}.scene:not([hidden]) .future-sentences p{animation:sentenceRise .55s var(--ease) both}.scene:not([hidden]) .future-sentences p:nth-child(1){animation-delay:.2s}.scene:not([hidden]) .future-sentences p:nth-child(2){animation-delay:.35s}.scene:not([hidden]) .future-sentences p:nth-child(3){animation-delay:.5s}@keyframes characterArrive{from{opacity:0;transform:translateX(-34px) rotate(-1deg)}to{opacity:1;transform:translateX(0) rotate(0)}}@keyframes panelArrive{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}@keyframes sentenceRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes underlineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.route{display:flex;align-items:center;gap:10px;margin:24px 0 13px;font:700 clamp(17px,1.6vw,24px) Georgia,serif;white-space:nowrap}
+.route i{color:var(--coral);font-style:normal}
+.route strong{font-size:38px;color:var(--coral)}
+.route img{width:70px;height:50px;margin-left:8px}
+.future blockquote{margin:0;font:italic 700 clamp(20px,1.8vw,27px) Georgia,serif;color:var(--coral)}
+.final-question{margin-top:18px!important;font:800 clamp(18px,1.5vw,22px) Georgia,serif!important;color:var(--ink)!important}
+#replay{margin-top:22px;border:0;background:none;color:var(--muted);cursor:pointer;font-weight:800;font-size:16px}
+@media(max-width:1100px){.opening{padding-inline:4vw}
+.plane-interior{grid-template-columns:minmax(300px,35%) 1fr;padding-inline:4vw}
+.suitcase-scene{grid-template-columns:34% 66%;padding-inline:3vw}
+.case-items{left:18%;right:18%;gap:5%}.case-items img{max-width:78px}
+.puzzle-zone{padding-right:1vw}
+.future{padding-inline:4vw}
+.route{gap:6px}
+.future-copy>p:first-of-type{white-space:normal}
+}
+@media(max-height:800px){.memory p,.story-copy p{font-size:18px}
+.suitcase-zone{padding-top:1vh;grid-template-rows:auto auto minmax(270px,37vh) 40px minmax(54px,auto) 68px}
+.suitcase-zone h2{font-size:34px}
+.case-items{top:48%;height:29%}
+.story-line{font-size:18px}
+.puzzle{height:240px}
+.puzzle button{transform:scale(.9)}
+.puzzle button:hover{transform:scale(.9) translateY(-5px)}
+.future h2{font-size:42px;margin-bottom:10px}
+.future-copy>p{font-size:18px}
+.route{margin-block:16px 10px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+</style>
+</head>
+<body>
+<main id="app">
+  <section id="opening" class="scene opening">
+    <div class="hero-art"><img src="assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2005_09_20%20PM%20(1).png" alt="Kitty welcomes the viewer with a wave"></div>
+    <div class="opening-copy"><span class="eyebrow">AN INTERACTIVE STORY</span><h1>KITTY’S <em>JOURNEY</em></h1><h2>One Small Uncomfortable Step at a Time</h2><p class="opening-quote"><span>“I didn’t have the whole journey planned.</span><span>I only knew it was time to take one small step.”</span></p><button id="start" class="cta">Start the journey <span>→</span></button></div>
+    <div class="doodle d1">✦</div><div class="doodle d2">♡</div><div class="doodle d3">✧</div><div class="opening-cloud cloud-a"></div><div class="opening-cloud cloud-b"></div><div class="tiny-flight" aria-hidden="true"><i></i><span>✈</span></div>
+  </section>
+
+  <section id="taiwan" class="scene map-scene" hidden>
+    <img class="full-map" src="assets/Taiwan%20map.png" alt="Illustrated map of Taiwan">
+    <div class="scene-label taiwan-label"><span>01 · HOME</span><h2>It began in Taiwan.</h2></div>
+    <button id="taiwanPin" class="hotspot taiwan-hotspot" aria-label="Open my Taiwan memory"><i></i><span>My comfort zone</span></button>
+    <div id="taiwanMemory" class="memory" hidden>
+      <img src="assets/01_teacher_taiwan.png" alt="Kitty as an early childhood teacher">
+      <div><span class="eyebrow">TAIWAN · EARLY CHAPTER</span><h2>Early Childhood Teacher</h2><p>I loved helping young children learn through stories, play, and imagination.</p><blockquote>“This was my comfort zone.”</blockquote><button id="pack" class="cta">But I wanted to grow <span>→</span></button></div>
+    </div>
+  </section>
+
+  <section id="whyLeave" class="scene why-leave" hidden>
+    <div class="why-art heart-portrait"><img src="assets/07_heart_pose.png" alt="Kitty makes a heart with her hands before beginning her journey"><span class="orbit o1">✦</span><span class="orbit o2">♡</span><span class="orbit o3">✧</span></div>
+    <div class="why-copy"><span class="eyebrow">WHY STEP OUT?</span><h2>My comfort zone held so much that I loved.</h2><p>But I wanted to see a bigger world—to expand what I knew, challenge myself, and grow into someone I hadn’t met yet.</p><blockquote>Wanting to grow meant stepping out—and finding the courage to face a whole new world.</blockquote><button id="chooseGrowth" class="question-button"><span>Take the first step</span><i>→</i></button></div>
+  </section>
+
+  <section id="goodbye" class="scene goodbye" hidden>
+    <div class="goodbye-art"><img src="assets/02_family_goodbye.png" alt="Kitty hugs her family goodbye"></div>
+    <div class="story-copy"><span class="eyebrow">THE FIRST UNCOMFORTABLE STEP</span><h2>Choosing growth meant leaving people I loved.</h2><p>I knew why I wanted to go. That didn’t make goodbye easy. I carried my family’s love, my questions, and a little courage with me.</p><button id="hold" class="hold"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="21"/><circle id="holdProgress" cx="26" cy="26" r="21"/></svg><span>Press and hold<br><b>to say goodbye</b></span></button></div>
+  </section>
+
+  <section id="planeInterior" class="scene plane-interior" hidden>
+    <div class="cabin-copy"><span class="eyebrow">SOMEWHERE OVER THE PACIFIC</span><p id="interiorText">I was excited to<br>go somewhere new...<br>but honestly,<br>I was nervous too.</p><small>Click the window when you’re ready to look outside.</small></div>
+    <div class="plane-portrait"><img class="seat-kitty" src="assets/03_plane_taiwan.png" alt="Kitty seated on the airplane"><button id="window" class="window-hotspot" aria-label="Look through the airplane window"><span>Look outside</span></button></div>
+  </section>
+
+  <section id="flightWorld" class="scene flight" hidden>
+    <img class="full-map" src="assets/Taiwan%20to%20us%20map.png" alt="Illustrated map from Taiwan to the United States">
+    <div class="clouds"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i></div>
+    <div class="flight-caption"><span>TAIWAN → UNITED STATES</span><b>A new country. A new language. New possibilities.</b></div>
+    <svg id="worldSvg" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true"><path id="worldRoute" d="M171 252 C350 126 590 118 790 218"/></svg>
+    <img id="worldPlane" class="moving-plane" src="assets/plane.png" alt="Airplane flying to the United States">
+  </section>
+
+  <section id="wisconsin" class="scene map-scene" hidden>
+    <img class="full-map" src="assets/Wisconsin.png" alt="Illustrated map of Wisconsin">
+    <div class="scene-label wisconsin-label"><span>02 · WISCONSIN</span><h2>I arrived somewhere unfamiliar.</h2></div>
+    <button id="madisonPin" class="hotspot madison-hotspot" aria-label="Explore Madison"><i></i><span>Madison · UW–Madison</span></button>
+  </section>
+
+  <section id="wiExplore" class="scene suitcase-scene" hidden>
+    <div class="explore-kitty"><img src="assets/05_explore_beginner.png" alt="Kitty invites you to explore"></div>
+    <div class="suitcase-zone">
+      <span class="eyebrow">WISCONSIN · LEARNING THROUGH CHALLENGE</span><h2>What did I pick up along the way?</h2>
+      <div class="suitcase-stage">
+        <button id="suitcase" class="suitcase" aria-label="Open the suitcase"><img class="case-closed" src="assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_36_03%20PM%20(1).png" alt="Closed suitcase"><img class="case-open" src="assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_36_03%20PM%20(2).png" alt="Open suitcase"><span>Click to open</span></button>
+        <div id="caseItems" class="case-items" hidden>
+          <button data-wi="game" aria-label="Explore Game Design"><span class="object-wrap"><img src="assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_45_17%20PM.png" alt="Game controller"></span></button>
+          <button data-wi="tech" aria-label="Explore Technology"><span class="object-wrap"><img src="assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_45_11%20PM.png" alt="Laptop"></span></button>
+          <button data-wi="creative" aria-label="Explore Creative Learning"><span class="object-wrap"><img src="assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_45_07%20PM.png" alt="Light bulb"></span></button>
+        </div>
+        <div id="stickers" class="stickers" aria-hidden="true"></div>
+      </div>
+      <div id="itemLabels" class="item-labels" hidden><span data-label="game"><b>Game Design</b><i>Explore</i></span><span data-label="tech"><b>Technology</b><i>Explore</i></span><span data-label="creative"><b>Creative Learning</b><i>Explore</i></span></div>
+      <p id="wiStory" class="story-line">A new language. Unfamiliar tools. Difficult work. Open the suitcase to see what helped me keep going.</p>
+      <button id="toGraduate" class="plane-unlock milestone-unlock" hidden><span class="cap-mark">🎓</span><span><b>I was ready for the biggest challenge</b><small>Thesis, defense—and graduation →</small></span></button>
+    </div>
+  </section>
+
+  <section id="wisconsinGrad" class="scene graduate-story" hidden>
+    <div class="graduate-art"><img src="assets/04_graduation_uw.png" alt="Kitty celebrating graduation from UW–Madison"></div>
+    <div class="graduate-copy"><span class="eyebrow">GRADUATE SCHOOL · UW–MADISON</span><h2 class="two-line-title"><span>The challenges didn’t disappear.</span><strong>I became stronger.</strong></h2><div class="sentence-stack"><p>Learning in another language, writing a thesis, and defending my ideas stretched me in ways I never expected.</p><p>I questioned myself more than once—but I kept asking, revising, practicing, and showing up.</p></div><blockquote><span>Graduation wasn’t just a finish line.</span><span>It was proof that I could grow through difficult things.</span></blockquote><p class="carry-line">I was leaving Wisconsin with new skills, new tools, and a stronger voice—ready to carry them into my next step.</p><button id="afterGrad" class="question-button"><span>Bring what I learned forward</span><i>→</i></button></div>
+  </section>
+
+  <section id="flightUS" class="scene flight us-flight" hidden>
+    <img class="full-map" src="assets/clean%20us%20map.png" alt="Illustrated map of the United States">
+    <div class="flight-caption"><span>THE NEXT STEP</span><b>Wisconsin → Mississippi</b></div>
+    <i class="map-dot wi"></i><i class="map-dot ms"></i><span class="map-name wi-name">Wisconsin</span><span class="map-name ms-name">Mississippi</span>
+    <svg id="usSvg" viewBox="0 0 1000 750" preserveAspectRatio="none" aria-hidden="true"><path id="usRoute" d="M610 250 C690 350 640 470 610 555"/></svg>
+    <img id="usPlane" class="moving-plane small" src="assets/plane.png" alt="Airplane flying south">
+  </section>
+
+  <section id="mississippi" class="scene mississippi" hidden>
+    <div class="ms-visual"><img src="assets/Mississippi.png" alt="Illustrated Mississippi scene"><img class="presenter" src="assets/06_presenter_current.png" alt="Kitty presents her current work"></div>
+    <div class="puzzle-zone"><span class="eyebrow">03 · MISSISSIPPI</span><h2 id="puzzleTitle">Help me connect the pieces.</h2>
+      <div id="puzzle" class="puzzle" aria-label="Four-piece puzzle">
+        <button data-ms="stem" class="p stem"><svg viewBox="0 0 160 120"><path d="M5 5h58a17 17 0 1 0 34 0h58v43a17 17 0 1 1 0 34v33H97a17 17 0 1 0-34 0H5V82a17 17 0 1 0 0-34z"/></svg><span>STEM</span></button>
+        <button data-ms="games" class="p games"><svg viewBox="0 0 160 120"><path d="M5 5h58a17 17 0 1 0 34 0h58v43a17 17 0 1 0 0 34v33H97a17 17 0 1 1-34 0H5V82a17 17 0 1 1 0-34z"/></svg><span>Games</span></button>
+        <button data-ms="curriculum" class="p curriculum"><svg viewBox="0 0 160 120"><path d="M5 5h58a17 17 0 1 1 34 0h58v43a17 17 0 1 0 0 34v33H97a17 17 0 1 0-34 0H5V82a17 17 0 1 1 0-34z"/></svg><span>Curriculum</span></button>
+        <button data-ms="creative" class="p creative"><svg viewBox="0 0 160 120"><path d="M5 5h58a17 17 0 1 1 34 0h58v43a17 17 0 1 1 0 34v33H97a17 17 0 1 1-34 0H5V82a17 17 0 1 0 0-34z"/></svg><span>Creative Tech</span></button>
+      </div>
+      <p id="msText" class="story-line">Choose a piece to see how it shaped my work.</p>
+      <div id="reflection" class="reflection" hidden><p>I stopped trying to fit into one box.</p><p>I started bringing education, technology, creativity, and STEM together.</p></div>
+      <button id="futurePlane" class="plane-unlock" hidden><img src="assets/plane.png" alt="Continue"><span>One more small step</span></button>
+    </div>
+  </section>
+
+  <section id="future" class="scene future" hidden>
+    <img class="future-kitty" src="assets/06_presenter_current.png" alt="Kitty points toward the future">
+    <div class="future-copy"><span class="eyebrow">THE JOURNEY CONTINUES</span><h2>You don’t have to feel ready to begin.</h2><div class="future-sentences"><p>Every step outside my comfort zone has helped me grow.</p><p>From graduate school to designing learning experiences, each challenge prepared me for the next.</p><p>One small step opened opportunities I never expected.</p></div><div class="route"><b>Taiwan</b><i>→</i><b>Wisconsin</b><i>→</i><b>Mississippi</b><i>→</i><strong>?</strong><img src="assets/plane.png" alt=""></div><blockquote>Take one curious, courageous step—and let it lead you somewhere you never imagined.</blockquote><p class="final-question">What small step will you take today?</p><button id="replay">↺ &nbsp;Experience it again</button></div>
+  </section>
+</main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const views=['opening','taiwan','whyLeave','goodbye','planeInterior','flightWorld','wisconsin','wisconsinGrad','wiExplore','flightUS','mississippi','future'];
+let holdRAF,flightRAF,wiFound=new Set(),msFound=new Set(),holding=false;
+function show(id){views.forEach(v=>$('#'+v).hidden=v!==id)}
+function fly(svg,path,plane,duration,done){cancelAnimationFrame(flightRAF);path.classList.remove('draw');void path.getBoundingClientRect();path.classList.add('draw');const total=path.getTotalLength(),box=svg.viewBox.baseVal,start=performance.now();function step(now){const t=Math.min(1,(now-start)/duration),a=path.getPointAtLength(total*t),b=path.getPointAtLength(Math.min(total,total*t+2)),r=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI,rect=svg.getBoundingClientRect();plane.style.left=((a.x-box.x)/box.width*rect.width+rect.left)+'px';plane.style.top=((a.y-box.y)/box.height*rect.height+rect.top)+'px';plane.style.transform=`translate(-50%,-50%) rotate(${r}deg)`;if(t<1)flightRAF=requestAnimationFrame(step);else done?.()}flightRAF=requestAnimationFrame(step)}
+$('#start').onclick=()=>show('taiwan');
+$('#taiwanPin').onclick=()=>{$('#taiwanMemory').hidden=false;$('#taiwanPin').hidden=true};
+$('#pack').onclick=()=>show('whyLeave');
+$('#chooseGrowth').onclick=()=>show('goodbye');
+function startHold(e){e.preventDefault();if(holding)return;holding=true;const start=performance.now();function tick(now){if(!holding)return;const p=Math.min(1,(now-start)/1400);$('#holdProgress').style.strokeDashoffset=132*(1-p);if(p<1)holdRAF=requestAnimationFrame(tick);else{holding=false;show('planeInterior')}}holdRAF=requestAnimationFrame(tick)}
+function stopHold(){holding=false;cancelAnimationFrame(holdRAF);$('#holdProgress').style.strokeDashoffset=132}
+$('#hold').addEventListener('pointerdown',startHold);['pointerup','pointerleave','pointercancel'].forEach(x=>$('#hold').addEventListener(x,stopHold));
+$('#window').onclick=()=>{$('#window').classList.add('zoom');setTimeout(()=>{show('flightWorld');fly($('#worldSvg'),$('#worldRoute'),$('#worldPlane'),4100,()=>setTimeout(()=>show('wisconsin'),500))},650)};
+$('#madisonPin').onclick=()=>show('wiExplore');
+$('#afterGrad').onclick=()=>{show('flightUS');fly($('#usSvg'),$('#usRoute'),$('#usPlane'),3000,()=>{$('.map-dot.wi').style.opacity=.3;$('.map-dot.ms').style.opacity=1;setTimeout(()=>show('mississippi'),550)})};
+$('#suitcase').onclick=()=>{$('#suitcase').classList.add('open');$('#caseItems').hidden=false;$('#itemLabels').hidden=false;$('#wiStory').textContent='Each challenge asked me to be a beginner again. Choose an item to discover what I gained.'};
+const wiCopy={game:'I didn’t begin with a coding background, but I kept learning — and eventually even taught game development with C#.',tech:'I learned new tools and platforms, and started using technology to turn ideas into learning experiences.',creative:'I discovered how to connect storytelling, curriculum, technology, and play into creative learning experiences.'};
+const stickerSrc={game:'assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_46_03%20PM%20(1).png',tech:'assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_46_04%20PM%20(2).png',creative:'assets/ChatGPT%20Image%20Sep%2010%2C%202026%2C%2004_46_04%20PM%20(3).png'};
+$$('[data-wi]').forEach(b=>b.onclick=e=>{e.stopPropagation();const key=b.dataset.wi;if(wiFound.has(key))return;wiFound.add(key);const object=b.querySelector('.object-wrap'),from=object.getBoundingClientRect(),to=$('#suitcase').getBoundingClientRect(),offset={game:-95,tech:0,creative:95}[key],dx=to.left+to.width/2+offset-(from.left+from.width/2),dy=to.top+to.height*.67-(from.top+from.height/2);object.animate([{transform:'translate(0,0) scale(1)'},{transform:'translate(0,-16px) scale(1.14)',offset:.2},{transform:`translate(${dx}px,${dy}px) scale(.42) rotate(-5deg)`,opacity:.12}],{duration:720,easing:'cubic-bezier(.3,.7,.2,1)',fill:'forwards'});$('#wiStory').textContent=wiCopy[key];$(`[data-label="${key}"]`).classList.add('done');$('.explore-kitty img').animate([{transform:'translateY(0) rotate(0)'},{transform:'translateY(-8px) rotate(-1deg)'},{transform:'translateY(0) rotate(0)'}],460);setTimeout(()=>{b.classList.add('done');const s=document.createElement('img');s.src=stickerSrc[key];s.alt='';s.className='sticker-'+key;$('#stickers').append(s)},650);if(wiFound.size===3)setTimeout(()=>{$('.suitcase-stage').classList.add('complete');$('#wiStory').textContent='Challenge by challenge, I wasn’t just collecting skills—I was building confidence, resilience, and a stronger voice.';$('#toGraduate').hidden=false;$('#toGraduate').animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}],450);$('#toGraduate').focus()},1050)});
+$('#toGraduate').onclick=()=>show('wisconsinGrad');
+const msCopy={stem:'STEM became a way to learn how the world works—to ask thoughtful questions, test ideas, and solve meaningful problems.',games:'Game thinking taught me to design through play and iteration.',curriculum:'Curriculum remains the foundation beneath every experience.',creative:'Creative technology helps me turn learning ideas into experiences.'};
+$$('[data-ms]').forEach(b=>b.onclick=()=>{const key=b.dataset.ms;if(msFound.has(key))return;msFound.add(key);b.classList.add('connected');$('#msText').textContent=msCopy[key];$('.presenter').animate([{transform:'translateY(0)'},{transform:'translateY(-7px)'},{transform:'translateY(0)'}],400);if(msFound.size===4)setTimeout(()=>{$('#puzzleTitle').textContent='The pieces started connecting.';$('#msText').hidden=true;$('#reflection').hidden=false;$('#futurePlane').hidden=false},650)});
+$('#futurePlane').onclick=()=>show('future');
+$('#replay').onclick=()=>{wiFound.clear();msFound.clear();$('#window').classList.remove('zoom');$('#taiwanMemory').hidden=true;$('#taiwanPin').hidden=false;$('#suitcase').classList.remove('open');$('.suitcase-stage').classList.remove('complete');$('#caseItems').hidden=true;$('#itemLabels').hidden=true;$('#stickers').innerHTML='';$('#wiStory').textContent='A new language. Unfamiliar tools. Difficult work. Open the suitcase to see what helped me keep going.';$$('[data-label]').forEach(x=>x.classList.remove('done'));$$('[data-wi]').forEach(x=>{x.classList.remove('done');x.querySelector('.object-wrap').getAnimations().forEach(a=>a.cancel())});$$('[data-ms]').forEach(x=>x.classList.remove('connected'));$('#puzzleTitle').textContent='Help me connect the pieces.';$('#msText').hidden=false;$('#msText').textContent='Choose a piece to see how it shaped my work.';$('#reflection').hidden=true;$('#toGraduate').hidden=true;$('#futurePlane').hidden=true;$('.map-dot.wi').style.opacity=1;$('.map-dot.ms').style.opacity=.35;show('opening')};
+show('opening');
+
+</script>
+</body>
+</html>
