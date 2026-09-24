@@ -263,7 +263,7 @@ html,body,#app{height:100%;min-height:100%;overflow:hidden}
     <img class="full-map" src="assets/Taiwan%20to%20us%20map.png" alt="Illustrated map from Taiwan to the United States">
     <div class="clouds"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i></div>
     <div class="flight-caption"><span>TAIWAN → UNITED STATES</span><b>A new country. A new language. New possibilities.</b></div>
-    <svg id="worldSvg" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true"><path id="worldRoute" d="M171 252 C350 126 590 118 790 218"/></svg>
+    <svg id="worldSvg" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true"><path id="worldRoute" d="M170 260 C345 132 585 135 750 258"/></svg>
     <img id="worldPlane" class="moving-plane" src="assets/plane.png" alt="Airplane flying to the United States">
   </section>
 
@@ -325,7 +325,7 @@ html,body,#app{height:100%;min-height:100%;overflow:hidden}
     <div class="future-copy"><span class="eyebrow">THE JOURNEY CONTINUES</span><h2>You don’t have to feel ready to begin.</h2><div class="future-sentences"><p>Every step outside my comfort zone has helped me grow.</p><p>From graduate school to designing learning experiences, each challenge prepared me for the next.</p><p>One small step opened opportunities I never expected.</p></div><div class="route"><b>Taiwan</b><i>→</i><b>Wisconsin</b><i>→</i><b>Mississippi</b><i>→</i><strong>?</strong><img src="assets/plane.png" alt=""></div><blockquote>Take one curious, courageous step—and let it lead you somewhere you never imagined.</blockquote><p class="final-question">What small step will you take today?</p><button id="replay">↺ &nbsp;Experience it again</button></div>
   </section>
 </main>
-<script>const $=s=>document.querySelector(s),$=s=>[...document.querySelectorAll(s)];
+<script>const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const views=['opening','taiwan','whyLeave','goodbye','planeInterior','flightWorld','wisconsin','wisconsinGrad','wiExplore','flightUS','mississippi','future'];
 let holdRAF,flightRAF,wiFound=new Set(),msFound=new Set(),holding=false;
 function show(id){views.forEach(v=>$('#'+v).hidden=v!==id)}
@@ -337,7 +337,7 @@ $('#chooseGrowth').onclick=()=>show('goodbye');
 function startHold(e){e.preventDefault();if(holding)return;holding=true;const start=performance.now();function tick(now){if(!holding)return;const p=Math.min(1,(now-start)/1400);$('#holdProgress').style.strokeDashoffset=132*(1-p);if(p<1)holdRAF=requestAnimationFrame(tick);else{holding=false;show('planeInterior')}}holdRAF=requestAnimationFrame(tick)}
 function stopHold(){holding=false;cancelAnimationFrame(holdRAF);$('#holdProgress').style.strokeDashoffset=132}
 $('#hold').addEventListener('pointerdown',startHold);['pointerup','pointerleave','pointercancel'].forEach(x=>$('#hold').addEventListener(x,stopHold));
-$('#window').onclick=()=>{$('#window').classList.add('zoom');setTimeout(()=>{show('flightWorld');fly($('#worldSvg'),$('#worldRoute'),$('#worldPlane'),4100,()=>setTimeout(()=>show('wisconsin'),500))},650)};
+$('#window').onclick=()=>{$('#window').classList.add('zoom');setTimeout(()=>{show('flightWorld');requestAnimationFrame(()=>requestAnimationFrame(()=>fly($('#worldSvg'),$('#worldRoute'),$('#worldPlane'),4100,()=>setTimeout(()=>show('wisconsin'),500))))},650)};
 $('#madisonPin').onclick=()=>show('wiExplore');
 $('#afterGrad').onclick=()=>{show('flightUS');fly($('#usSvg'),$('#usRoute'),$('#usPlane'),3000,()=>{$('.map-dot.wi').style.opacity=.3;$('.map-dot.ms').style.opacity=1;setTimeout(()=>show('mississippi'),550)})};
 $('#suitcase').onclick=()=>{$('#suitcase').classList.add('open');$('#caseItems').hidden=false;$('#itemLabels').hidden=false;$('#wiStory').textContent='Each challenge asked me to be a beginner again. Choose an item to discover what I gained.'};
