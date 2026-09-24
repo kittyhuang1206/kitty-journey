@@ -84,6 +84,7 @@ img{max-width:100%;max-height:100%;object-fit:contain}
 @keyframes drift{to{left:125%}
 }
 .flight svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.world-map-frame{position:absolute;inset:0}.world-map-frame>.full-map{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.world-map-frame>.moving-plane{position:absolute}
 .flight path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:1 15;opacity:.95}
 .flight path.draw{animation:routeDraw 4s linear forwards}
 @keyframes routeDraw{from{stroke-dashoffset:700}
@@ -214,7 +215,7 @@ html,body,#app{height:100%;min-height:100%;overflow:hidden}
 .why-leave,.goodbye,.graduate-story,.mississippi,.future{display:flex;flex-direction:column;padding-inline:20px;gap:10px}.why-art{height:44dvh;min-height:285px;flex:none}.heart-portrait img{height:43dvh;max-width:90vw}.heart-portrait:before{height:90%;width:90%}.why-copy,.story-copy,.graduate-copy,.future-copy{width:100%;max-width:540px;margin:0 auto}.why-copy h2,.story-copy h2{font-size:clamp(31px,9vw,43px);margin:6px 0 12px}.why-copy p,.story-copy p{font-size:16px;line-height:1.48}.why-copy blockquote{font-size:20px;margin:16px 0}.orbit{font-size:22px}.o1{right:5%;top:18%}.o2{left:3%;top:45%}.o3{right:2%;top:56%}
 .goodbye-art{height:48dvh;min-height:300px;width:100%;justify-content:center;align-items:flex-end;flex:none}.goodbye-art img{height:100%;max-width:96vw}.goodbye .story-copy{text-align:center}.hold{justify-content:center;margin:18px auto 0}.hold svg{width:54px;height:54px}
 .plane-interior{display:flex;flex-direction:column;padding-inline:16px;gap:8px}.plane-portrait{height:58dvh;width:min(43.5dvh,94vw);min-height:350px;flex:none}.cabin-copy{text-align:center;max-width:520px;margin:0 auto}.cabin-copy p{font-size:clamp(24px,7vw,34px);white-space:normal;margin:8px 0}.cabin-copy small{font-size:14px;white-space:normal}.window-hotspot{right:1%;top:7%}
-.flight-caption span{font-size:10px}.flight-caption b{margin-top:4px}.moving-plane{width:64px}.map-name{font-size:13px}.us-flight .full-map{object-position:center}#flightWorld{background:#77c8e9}#flightWorld .full-map,#flightWorld svg{position:absolute;left:0;top:50%;width:100%;height:auto;aspect-ratio:1000/563;transform:translateY(-50%)}#flightWorld .full-map{object-fit:contain;max-height:none}#flightWorld svg{inset:auto;pointer-events:none}#flightWorld #worldPlane{display:block;opacity:1;left:17%;top:50%;width:82px;z-index:10;filter:drop-shadow(0 5px 3px #24506c77) drop-shadow(0 0 7px #fff)}
+.flight-caption span{font-size:10px}.flight-caption b{margin-top:4px}.moving-plane{width:64px}.map-name{font-size:13px}.us-flight .full-map{object-position:center}#flightWorld{background:#77c8e9}#flightWorld .world-map-frame{inset:auto;left:50%;top:50%;width:100vw;height:auto;aspect-ratio:1000/563;transform:translate(-50%,-50%);overflow:visible}#flightWorld .world-map-frame>.full-map,#flightWorld .world-map-frame>svg{position:absolute;inset:0;width:100%;height:100%;max-height:none;transform:none}#flightWorld .world-map-frame>.full-map{object-fit:contain}#flightWorld .world-map-frame>svg{pointer-events:none}#flightWorld #worldPlane{display:block;opacity:1;left:17%;top:46%;width:82px;z-index:10;filter:drop-shadow(0 5px 3px #24506c77) drop-shadow(0 0 7px #fff)}
 .suitcase-scene{display:flex;flex-direction:column;padding-inline:14px;gap:0}.explore-kitty{height:33dvh;min-height:215px;width:100%;flex:none}.explore-kitty img{height:100%}.suitcase-zone{height:auto;width:100%;max-width:560px;margin:0 auto;padding:0;display:flex;flex-direction:column;align-items:stretch;text-align:center}.suitcase-zone h2{font-size:clamp(29px,8.5vw,40px);margin:5px 0 8px}.suitcase-stage{height:300px;min-height:300px}.suitcase{width:100%;max-width:520px}.case-items{left:19%;right:19%;top:51%;height:27%;gap:3%}.case-items img{width:min(17vw,76px);max-width:76px}.stickers{left:20%;width:60%;top:55%;height:25%}.stickers img{width:min(17vw,72px);height:min(17vw,72px)}.item-labels{font-size:11px}.item-labels b{font-size:12px}.story-line{font-size:16px;line-height:1.4;min-height:64px;margin:8px auto}.plane-unlock{margin:6px auto 12px;max-width:95%;font-size:15px}
 .graduate-story{justify-content:flex-start}.graduate-art{height:43dvh;min-height:275px;width:100%;flex:none}.graduate-art img{height:100%}.graduate-copy{padding:20px;border-radius:22px}.graduate-copy h2{font-size:clamp(29px,8vw,40px)}.two-line-title span,.two-line-title strong{white-space:normal}.graduate-copy p{font-size:16px}.graduate-copy blockquote{font-size:19px}.carry-line{padding-left:12px}.question-button{font-size:18px}
 .mississippi{justify-content:flex-start}.ms-visual{height:40dvh;min-height:260px;width:100%;flex:none}.ms-visual>img:first-child{width:100%;height:100%;object-fit:contain}.presenter{height:90%}.puzzle-zone{width:100%;max-width:560px;margin:0 auto;padding:0;text-align:center}.puzzle-zone h2{font-size:clamp(29px,8vw,40px);margin:6px 0 10px}.puzzle{height:260px;width:min(100%,350px);margin:0 auto}.puzzle button{transform:scale(.84)}.puzzle button:hover{transform:scale(.84)}.reflection{font-size:16px}
@@ -260,11 +261,13 @@ html,body,#app{height:100%;min-height:100%;overflow:hidden}
   </section>
 
   <section id="flightWorld" class="scene flight" hidden>
-    <img class="full-map" src="assets/Taiwan%20to%20us%20map.png" alt="Illustrated map from Taiwan to the United States">
+    <div class="world-map-frame">
+      <img class="full-map" src="assets/Taiwan%20to%20us%20map.png" alt="Illustrated map from Taiwan to the United States">
+      <svg id="worldSvg" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true"><path id="worldRoute" d="M170 260 C345 132 585 135 750 258"/></svg>
+      <img id="worldPlane" class="moving-plane" src="assets/plane.png" alt="Airplane flying to the United States">
+    </div>
     <div class="clouds"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i></div>
     <div class="flight-caption"><span>TAIWAN → UNITED STATES</span><b>A new country. A new language. New possibilities.</b></div>
-    <svg id="worldSvg" viewBox="0 0 1000 563" preserveAspectRatio="none" aria-hidden="true"><path id="worldRoute" d="M170 260 C345 132 585 135 750 258"/></svg>
-    <img id="worldPlane" class="moving-plane" src="assets/plane.png" alt="Airplane flying to the United States">
   </section>
 
   <section id="wisconsin" class="scene map-scene" hidden>
